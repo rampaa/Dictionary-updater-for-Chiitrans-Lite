@@ -10,7 +10,7 @@ if not exist "%backup_path%" mkdir "%backup_path%"
 if not exist "%download_path%" mkdir "%download_path%"
 
 REM JMdict: Japanese/English Dictionary
-wget -N http://ftp.monash.edu/pub/nihongo/JMdict_e.gz -P "%download_path%" 2>"%download_path%\log.txt" 
+wget -N http://ftp.edrdg.org/pub/Nihongo/JMdict_e.gz -P "%download_path%" 2>"%download_path%\log.txt" 
 find "304 Not Modified" "%download_path%\log.txt" > nul
 if %ERRORLEVEL% NEQ 0 (
 xcopy "%chiitrans_path%\JMdict.xml" "%backup_path%" /d /y
@@ -20,7 +20,7 @@ move /y "%download_path%\JMdict_e" "%chiitrans_path%\JMdict.xml"
 del "%download_path%\log.txt"
  
 REM JMnedict: Japanese Proper Names Dictionary
-wget -N http://ftp.monash.edu/pub/nihongo/JMnedict.xml.gz -P "%download_path%" 2> "%download_path%\log.txt"
+wget -N http://ftp.edrdg.org/pub/Nihongo/JMnedict.xml.gz -P "%download_path%" 2> "%download_path%\log.txt"
 find "304 Not Modified" "%download_path%\log.txt" > nul
 if %ERRORLEVEL% NEQ 0 (
 xcopy "%chiitrans_path%\JMnedict.xml" "%backup_path%" /d /y
